@@ -4,7 +4,7 @@ const sequelize = require('sequelize');
 // 2 - Elencar os dados para conexão com o BD
 const config = {
     username:"root",
-    password:"vaiplaneta",
+    password:"programadores",
     host:"localhost",
     port:3306,
     dialect:"mysql",
