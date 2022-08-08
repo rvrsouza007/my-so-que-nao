@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    let u = sequelize.define(
+    let usuario = sequelize.define(
         "Usuarios",
         {
             id: {
@@ -31,19 +31,19 @@ module.exports = (sequelize, DataTypes) => {
         },
     )
 
-    u.associate = (models) => {
-        u.hasMany(models.Publicacoes, { as: "publicacoes", foreignKey: "usuarios_id" });
-        u.belongsToMany(
+    usuario.associate = (models) => {
+        usuario.hasMany(models.Publicacoes, { as: "publicacoes", foreignKey: "usuarios_id" });
+        usuario.belongsToMany(
             models.Usuarios,
             {
-                as: "friends", 
-                through:"amizades", 
-                foreignKey:"usuarios_id1", 
-                otherKey:"usuarios_id2", 
+                as: "amigos",
+                through: "amizades",
+                foreignKey: "usuarios_id1",
+                otherKey: "usuarios_id2",
                 timestamps: false
             }
         );
     }
-
-    return u;
+    
+    return usuario;
 }
